@@ -1,6 +1,3 @@
-const auteur = document.getElementById("auteur");
-const titre = document.getElementById("titre");
-const nbPage = document.getElementById("pages");
 const submitBtn = document.querySelector(".submit")
 
 let myLibrary = [];
@@ -14,15 +11,10 @@ function Book(title, author, pages){
     }
 }
 
-//Create newBook, push it in array and take its infos.
-//Need to make a function from it
-const newBook = new Book("Hobbit", "Tolkien", "452");
-myLibrary.push(newBook)
-console.log(myLibrary[0].infos())
-
-
-
 function addBookToLibrary(){
-
+//Create newBook, push it in array and take its infos.
+    const newBook = new Book("Hobbit", "Tolkien", "432");
+    myLibrary.push(newBook)
 }
-
+addBookToLibrary()
+console.log(myLibrary[0].infos())
