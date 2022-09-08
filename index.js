@@ -1,20 +1,30 @@
-const submitBtn = document.querySelector(".submit")
+const bookTitle = document.getElementById("titre").value;
+const bookAuthor = document.getElementById("auteur").value;
+const bookPage = document.getElementById("pages").value;
+
+const submitBtn = document.querySelector(".submit");
 
 let myLibrary = [];
 
-function Book(title, author, pages){
+// Constructor - store the book infos
+function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
     this.infos = function(){
-        return `${title} by ${author}, ${pages} pages.`
+        return `${title} by ${author}, ${pages} pages and is ${read}.`
     }
 }
 
-function addBookToLibrary(){
-//Create newBook, push it in array and take its infos.
-    const newBook = new Book("Hobbit", "Tolkien", "432");
-    myLibrary.push(newBook)
+//Create newBook, push it in Library array
+function addBookToLibrary(title, author, pages, read){
+    const newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
 }
-addBookToLibrary()
-console.log(myLibrary[0].infos())
+
+const hobbit = addBookToLibrary("Hobbit", "Tolkien", "452", "not read yet");
+const harryP = addBookToLibrary("Harry Potter", "J.R ", "764", "read");
+
+console.log(myLibrary[0].infos());
+console.log(myLibrary[1].infos());
