@@ -3,7 +3,7 @@ const bookAuthor = document.getElementById("auteur").value;
 const bookPage = document.getElementById("pages").value;
 
 const submitBtn = document.querySelector(".submit"); */
-const displayBooks = document.querySelector(".displayBook")
+const displayBooks = document.querySelector(".displayBook");
 
 let myLibrary = [];
 
@@ -36,9 +36,12 @@ function displayBook(){
         //for each infos of the books
         for (let bookInfos in books){
             //display the books infos
-            console.log(`${bookInfos}: ${books[bookInfos]}`)
+            console.log(`${bookInfos}: ${books[bookInfos]}`);
+            
+            const card = document.createElement("p");
+            card.textContent += `${bookInfos}: ${books[bookInfos]}`;
+            displayBooks.appendChild(card);
         }
     })
-    
 }
 displayBook();
