@@ -3,7 +3,7 @@ const bookAuthor = document.getElementById("auteur").value;
 const bookPage = document.getElementById("pages").value;
 
 const submitBtn = document.querySelector(".submit"); */
-const displayBooks = document.querySelector(".displayBook");
+const display = document.querySelector(".display");
 
 let myLibrary = [];
 
@@ -33,14 +33,18 @@ console.log(myLibrary[1]);
 function displayBook(){
     //For each books in myLibrary
     myLibrary.forEach(books => {
+        //create div for each book
+        const card = document.createElement("div");
+        card.classList.add("bookDisplay");
+        display.append(card);
         //for each infos of the books
         for (let bookInfos in books){
             //display the books infos
             console.log(`${bookInfos}: ${books[bookInfos]}`);
-            
-            const card = document.createElement("p");
-            card.textContent += `${bookInfos}: ${books[bookInfos]}`;
-            displayBooks.appendChild(card);
+ 
+            const para = document.createElement("p");
+            para.textContent += `${bookInfos}: ${books[bookInfos]}`;
+            card.appendChild(para);
         }
     })
 }
