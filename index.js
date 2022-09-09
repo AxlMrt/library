@@ -1,8 +1,8 @@
 /* const bookTitle = document.getElementById("titre").value;
 const bookAuthor = document.getElementById("auteur").value;
-const bookPage = document.getElementById("pages").value;
+const bookPage = document.getElementById("pages").value;*/
+const submitBtn = document.querySelector(".submitBtn");
 
-const submitBtn = document.querySelector(".submit"); */
 const display = document.querySelector(".display");
 
 let myLibrary = [];
@@ -27,9 +27,6 @@ function addBookToLibrary(title, author, pages, read){
 const hobbit = addBookToLibrary("Hobbit", "Tolkien", "452", "not read yet");
 const harryP = addBookToLibrary("Harry Potter", "J.R ", "764", "read");
 
-console.log(myLibrary[0]);
-console.log(myLibrary[1]);
-
 function displayBook(){
     //For each books in myLibrary
     myLibrary.forEach(books => {
@@ -40,8 +37,6 @@ function displayBook(){
         //for each infos of the books
         for (let bookInfos in books){
             //display the books infos
-            console.log(`${bookInfos}: ${books[bookInfos]}`);
- 
             const para = document.createElement("p");
             para.textContent += `${bookInfos}: ${books[bookInfos]}`;
             card.appendChild(para);
@@ -49,3 +44,15 @@ function displayBook(){
     })
 }
 displayBook();
+
+// Close & Open modal
+const newBookBtn = document.querySelector(".button");
+const overlay = document.getElementById("popup");
+
+newBookBtn.addEventListener("click", () =>{
+    overlay.classList.add("hidden")
+})
+
+submitBtn.addEventListener("click", () =>{
+    overlay.classList.remove("hidden")
+})
