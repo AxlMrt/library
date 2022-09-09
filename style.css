@@ -45,7 +45,7 @@ body{
     opacity: 0;
 }
 
-.here:target{
+.hidden:target{
     visibility: visible;
     opacity: 1;
 }
