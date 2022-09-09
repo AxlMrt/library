@@ -1,26 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Zen+Tokyo+Zoo&display=swap');
 
-*{
+*,
+*::before,
+*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+  }
+
 body{
-    font-family: Montserrat, sans-serif;
+    font-family: montserrat;
+    background: #d1d5db;
 }
 
+header{
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 10px #403e3d ;
+}
 
+header img{
+    width: 150px;
+}
 
+h1{
+    color: #413b3b;
+    font-family: zen tokyo zoo;
+    font-weight: 400;
+    font-size: 3em;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
 
-    
+main{
+
+    padding: 5em;
+}
 
 .display{
-    display: flex;
-    gap: 5em;
-
+    display: grid;
+    gap: 2em;
 }
 
+.bookDisplay{
+    max-width: 200px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+    padding: 1em;
+    border-radius: 6px;
+    transition: all 0.5s ease-out;
+}
+
+.bookDisplay:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 5px 2px rgb(82, 82, 82, .4);
+    transition: 0.4s ease;
+}
+
+#closeBtn{
+    text-transform: uppercase;
+}
 
 /*Pop-up form*/
 .box{
@@ -31,8 +83,8 @@ body{
     background: #403e3d;
     color: #fff;
     font-size: 1em;
+    font-weight: 700;
     padding: 15px 35px;
-    text-align: none;
     text-decoration: none;
     border-radius: 50px;
     cursor: pointer;
@@ -129,4 +181,23 @@ input[type=submit]{
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
+}
+
+/*Footer*/
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
 }

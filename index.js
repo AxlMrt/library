@@ -5,13 +5,13 @@ let myLibrary = [];
 
 // Constructor - store the book infos
 function Book(title, author, pages, read){
-    this.Title = title;
-    this.Author = author;
+    this.Titre = title;
+    this.Auteur = author;
     this.Pages = pages;   
     if (read === true){
-        this.Read = "Already read";
+        this.Lu = "Déjà lu";
     }else{
-        this.Read = "Not read yet";
+        this.Lu = "Pas encore lu";
     }
 }
 
@@ -29,7 +29,7 @@ function addBookToLibrary(){
 
     //If one of the input is empty, return an alert
     if(title === "" || author === "" || pages === ""){
-        return alert("Field cannot be empty");
+        return alert("Les champs doivent être remplis");
     }
 
     const newBook = new Book(title, author, pages, read);
@@ -44,6 +44,15 @@ function displayBook(){
         const card = document.createElement("div");
         card.classList.add("bookDisplay");
         display.append(card);
+        //create a remove button for each card
+        const closeBtn = document.createElement("button");
+        closeBtn.setAttribute("id", "closeBtn");
+        closeBtn.textContent = "Delete"
+        card.appendChild(closeBtn)
+        //Make a button to remove the card container
+        closeBtn.addEventListener("click", function() {
+            this.parentElement.remove()
+        })
         //for each infos of the books
         for (let bookInfos in books){
             //display the books infos
@@ -58,6 +67,7 @@ submitBtn.addEventListener("click", () =>{
     addBookToLibrary();
     displayBook();
 })
+
 
 // Close & Open modal
 const newBookBtn = document.querySelector(".button");

@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
 
-    <title>Library</title>
+    <title>Bibliothèque</title>
 </head>
 <body>
+  <header>
+    <img src="img/logo.jpg" alt="logo">
+    <h1>Librairie</h1>
+  </header>
+    
   <main>
-    <h1>Library</h1>
-
-        <div class="box">
-            <a href="#popup" class="button">New Book</a>
-        </div>
+    <div class="box">
+      <a href="#popup" class="button">+ Ajouter</a>
+    </div>
     
         <div class="display"></div>
     
@@ -29,13 +32,13 @@
         <div class="content">
           <div class="container">
             <form id="makeBook">
-              <label for="titre">Book title</label>
-              <input type="text" name="titre" id="titre" placeholder="Title">
-              <label for="auteur">Author</label>
-              <input type="text" name="auteur" id="auteur" placeholder="Author">
-              <label for="page">Number of pages</label>
-              <input type="number" name="page" id="pages" placeholder="Page Number">
-              <label for="isRead">Have you read it ?</label>
+              <label for="titre">Titre du livre*</label>
+              <input type="text" name="titre" id="titre" placeholder="Titre">
+              <label for="auteur">Auteur*</label>
+              <input type="text" name="auteur" id="auteur" placeholder="Auteur">
+              <label for="page">Nombre de pages*</label>
+              <input type="number" name="page" id="pages" placeholder="Nombre de pages">
+              <label for="isRead">Déjà lu ?</label>
               <input type="checkbox" name="isRead" id="isRead">
               <input type="submit" value="submit" class="submitBtn">
             </form>
@@ -43,7 +46,17 @@
         </div>
       </div>
     </div>
-  </main>
 
+  </main>
+  <footer class="footer">
+    <p>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear())
+      </script>
+
+    </p>
+    <a href="https://github.com/AxlMrt" target="_blank">AxlDev</a>
+  </footer>
 </body>
 </html>
