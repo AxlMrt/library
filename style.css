@@ -10,11 +10,17 @@ body{
     font-family: Montserrat, sans-serif;
 }
 
+
+
+
+    
+
 .display{
     display: flex;
     gap: 5em;
 
 }
+
 
 /*Pop-up form*/
 .box{
@@ -97,7 +103,15 @@ input[type=text]{
     width: 100%;
     padding: 1em;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 1.2em;
+    resize: vertical;
+}
+
+input[type=number]{
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #ccc;
     margin-top: 6px;
     margin-bottom: 1.2em;
     resize: vertical;

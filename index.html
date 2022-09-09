@@ -11,10 +11,16 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="display"></div>
-    <div class="box">
-        <a href="#popup" class="button">New Book</a>
-    </div>
+  <main>
+    <h1>Library</h1>
+
+        <div class="box">
+            <a href="#popup" class="button">New Book</a>
+        </div>
+    
+        <div class="display"></div>
+    
+
 
     <div class="overlay hidden" id="popup">
       <div class="wrapper">
@@ -23,13 +29,13 @@
         <div class="content">
           <div class="container">
             <form id="makeBook">
-              <label for="">Book title</label>
-              <input type="text" name="titre" id="titre" placeholder="Titre">
-              <label for="">Author</label>
-              <input type="text" name="auteur" id="auteur" placeholder="Auteur">
-              <label for="">Number of pages</label>
-              <input type="text" name="page" id="pages" placeholder="Nb pages">
-              <label for="">Have you read it ?</label>
+              <label for="titre">Book title</label>
+              <input type="text" name="titre" id="titre" placeholder="Title">
+              <label for="auteur">Author</label>
+              <input type="text" name="auteur" id="auteur" placeholder="Author">
+              <label for="page">Number of pages</label>
+              <input type="number" name="page" id="pages" placeholder="Page Number">
+              <label for="isRead">Have you read it ?</label>
               <input type="checkbox" name="isRead" id="isRead">
               <input type="submit" value="submit" class="submitBtn">
             </form>
@@ -37,7 +43,7 @@
         </div>
       </div>
     </div>
-
+  </main>
 
 </body>
 </html>
