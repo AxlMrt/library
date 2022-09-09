@@ -5,18 +5,14 @@ let myLibrary = [];
 
 // Constructor - store the book infos
 function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;   
+    this.Title = title;
+    this.Author = author;
+    this.Pages = pages;   
     if (read === true){
-        this.read = "Already read";
+        this.Read = "Already read";
     }else{
-        this.read = "Not read yet"
+        this.Read = "Not read yet";
     }
-
-    //this.infos = function(){
-        //return `${title} by ${author}, ${pages} pages and is ${read}.`
-    //}
 }
 
 //Create newBook, push it in Library array
@@ -26,10 +22,12 @@ function addBookToLibrary(){
     const pages = document.getElementById("pages").value;
     const read = document.getElementById('isRead').checked;
 
+    // Store the values
     document.getElementById("titre").value = "";
     document.getElementById("auteur").value = "";
     document.getElementById("pages").value = "";
 
+    //If one of the input is empty, return an alert
     if(title === "" || author === "" || pages === ""){
         return alert("Field cannot be empty");
     }
@@ -39,6 +37,7 @@ function addBookToLibrary(){
 }
 
 function displayBook(){
+    display.innerHTML = "";
     //For each books in myLibrary
     myLibrary.forEach(books => {
         //create div for each book
@@ -57,7 +56,6 @@ function displayBook(){
 
 submitBtn.addEventListener("click", () =>{
     addBookToLibrary();
-    display.innerHTML = "";
     displayBook();
 })
 
@@ -66,9 +64,9 @@ const newBookBtn = document.querySelector(".button");
 const overlay = document.getElementById("popup");
 
 newBookBtn.addEventListener("click", () =>{
-    overlay.classList.add("hidden")
+    overlay.classList.add("hidden");
 })
 
 submitBtn.addEventListener("click", () =>{
-    overlay.classList.remove("hidden")
+    overlay.classList.remove("hidden");
 })
