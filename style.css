@@ -60,12 +60,15 @@ main{
     flex-direction: column;
     gap: 1.3em;
     padding: 1em;
-    border-radius: 6px;
+    border: 1px solid black ;
+    border-radius: 8px;
+    box-shadow: 14px 14px 0 -4px #fff, 14px 14px 0 0 black;
     transition: all 0.5s ease-out;
 }
 
 .bookDisplay:hover{
     transform: scale(1.1);
+ 
     box-shadow: 0 5px 5px 2px rgb(82, 82, 82, .4);
     transition: 0.4s ease;
 }

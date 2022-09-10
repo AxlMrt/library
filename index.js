@@ -44,12 +44,12 @@ function displayBook(){
         const card = document.createElement("div");
         card.classList.add("bookDisplay");
         display.append(card);
-        //create a remove button for each card
+        //create a delete button for each card
         const closeBtn = document.createElement("button");
         closeBtn.setAttribute("id", "closeBtn");
         closeBtn.textContent = "Delete"
         card.appendChild(closeBtn)
-        //Make a button to remove the card container
+        //Make the button work
         closeBtn.addEventListener("click", function() {
             this.parentElement.remove()
         })
@@ -67,7 +67,6 @@ submitBtn.addEventListener("click", () =>{
     addBookToLibrary();
     displayBook();
 })
-
 
 // Close & Open modal
 const newBookBtn = document.querySelector(".button");
