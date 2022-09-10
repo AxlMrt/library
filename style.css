@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Zen+Tokyo+Zoo&display=swap');
 
+:root{
+    --darkGrey: #403e3d;
+    --white: #fff;
+    --mainBg: #d1d5db;
+}
+
 *,
 *::before,
 *::after{
@@ -11,23 +17,23 @@
 html {
     /* footer support */
     position: relative;
-    min-height: 100%;
-  }
+    min-height: 100vh;
+}
 
 body{
     font-family: montserrat;
-    background: #d1d5db;
+    background: var(--mainBg);
 }
 
 header{
     position: relative;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--white);
     display: grid;
     grid-template-columns: 150px 1fr;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 10px #403e3d ;
+    box-shadow: 0 5px 10px var(--darkGrey);
 }
 
 header img{
@@ -35,7 +41,7 @@ header img{
 }
 
 h1{
-    color: #413b3b;
+    color: var(--darkGrey);
     font-family: zen tokyo zoo;
     font-weight: 400;
     font-size: 3em;
@@ -44,7 +50,6 @@ h1{
 }
 
 main{
-
     padding: 5em;
 }
 
@@ -54,27 +59,60 @@ main{
 }
 
 .bookDisplay{
-    max-width: 200px;
-    background: #fff;
+    max-width: 250px;
+    background: var(--white);
     display: flex;
     flex-direction: column;
     gap: 1.3em;
     padding: 1em;
     border: 1px solid black ;
     border-radius: 8px;
-    box-shadow: 14px 14px 0 -4px #fff, 14px 14px 0 0 black;
-    transition: all 0.5s ease-out;
+    box-shadow: 14px 14px 0 -4px var(--white), 14px 14px 0 0 var(--darkGrey);
+    transition: all 0.6s ease-out;
 }
 
 .bookDisplay:hover{
     transform: scale(1.1);
- 
     box-shadow: 0 5px 5px 2px rgb(82, 82, 82, .4);
-    transition: 0.4s ease;
+    transition: 0.5s ease;
 }
 
-#closeBtn{
+.bookDisplay span{
+    width: 10px;
+    font-weight: 700;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.bookDisplay span:hover{
+    transform: scale(1.3);
+    transition: .2s ease-in;
+}
+
+.bookDisplay p{
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+#modifyBtn{
+    width: 100%;
+    height: 2em;
+    background: none;
+    border: 1px solid var(--darkGrey);
+    border-radius: 5px;
     text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+
+#modifyBtn:hover{
+    transition: 1s ease-in-out;
+    background: var(--darkGrey);
+    color: var(--white);
 }
 
 /*Pop-up form*/
@@ -84,7 +122,7 @@ main{
 
 .button{
     background: #403e3d;
-    color: #fff;
+    color: var(--white);
     font-size: 1em;
     font-weight: 700;
     padding: 15px 35px;

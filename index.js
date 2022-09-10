@@ -44,15 +44,16 @@ function displayBook(){
         const card = document.createElement("div");
         card.classList.add("bookDisplay");
         display.append(card);
-        //create a delete button for each card
-        const closeBtn = document.createElement("button");
-        closeBtn.setAttribute("id", "closeBtn");
-        closeBtn.textContent = "Delete"
-        card.appendChild(closeBtn)
-        //Make the button work
-        closeBtn.addEventListener("click", function() {
-            this.parentElement.remove()
+        //Create a delete button for each card
+        const deleteX = document.createElement("span");
+        deleteX.textContent = "x";
+        card.appendChild(deleteX);
+        //make button work on click
+        deleteX.addEventListener("click", function() {
+            myLibrary.splice(this.parentElement.getAttribute("data-index"), 1);
+            this.parentElement.remove();
         })
+        
         //for each infos of the books
         for (let bookInfos in books){
             //display the books infos
@@ -60,8 +61,14 @@ function displayBook(){
             para.textContent = `${bookInfos}: ${books[bookInfos]}`;
             card.appendChild(para);
         }
+        //create a modify button for each card
+        const modifyBtn = document.createElement("button");
+        modifyBtn.setAttribute("id", "modifyBtn");
+        modifyBtn.textContent = "modifier";
+        card.appendChild(modifyBtn);
     })
 }
+
 
 submitBtn.addEventListener("click", () =>{
     addBookToLibrary();
