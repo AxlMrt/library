@@ -1,5 +1,7 @@
 const display = document.querySelector(".display");
 const submitBtn = document.querySelector(".submitBtn");
+const newBookBtn = document.querySelector(".button");
+const overlay = document.getElementById("popup");
 
 let myLibrary = [];
 
@@ -27,6 +29,7 @@ function addBookToLibrary(){
     document.getElementById("titre").value = "";
     document.getElementById("auteur").value = "";
     document.getElementById("pages").value = "";
+    document.getElementById("isRead").checked = false;
 
     //If one of the input is empty, return an alert
     if(title === "" || author === "" || pages === ""){
@@ -35,6 +38,7 @@ function addBookToLibrary(){
 
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
+    displayBook()
 }
 
 function displayBook(){
@@ -51,9 +55,9 @@ function displayBook(){
         //Create a delete button for each card
         const deleteX = document.createElement("span");
         deleteX.textContent = "x";
-        card.appendChild(deleteX);
+        card.append(deleteX);
 
-        //make button work on click
+        //make span work as delete button
         deleteX.addEventListener("click", function() {
             myLibrary.splice(this.parentElement.getAttribute("data-index"), 1);
             this.parentElement.remove();
@@ -65,14 +69,14 @@ function displayBook(){
             const para = document.createElement("p");
             para.textContent = `${bookInfos}: ${books[bookInfos]}`;
             para.classList.add("bookText")
-            card.appendChild(para);
+            card.append(para);
         }
 
         //create a modify button for each card
         const modifyBtn = document.createElement("button");
         modifyBtn.setAttribute("id", "modifyBtn");
         modifyBtn.textContent = "status";
-        card.appendChild(modifyBtn);
+        card.append(modifyBtn);
 
         //Toggle the read line
         const readText = card.querySelector(".bookDisplay :nth-child(5)")
@@ -88,15 +92,11 @@ function displayBook(){
 }
 
 // Close & Open modal
-const newBookBtn = document.querySelector(".button");
-const overlay = document.getElementById("popup");
-
 newBookBtn.addEventListener("click", () =>{
     overlay.classList.add("hidden");
 })
 
 submitBtn.addEventListener("click", () =>{
     addBookToLibrary();
-    displayBook();
     overlay.classList.remove("hidden"); 
 })
