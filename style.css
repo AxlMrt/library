@@ -208,7 +208,7 @@ input[type=text]{
     border: 1px solid #ccc;
     margin-top: 6px;
     margin-bottom: 1.2em;
-    resize: vertical;
+    
 }
 
 input[type=number]{
@@ -259,6 +259,10 @@ input[type=submit]{
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
     }
+
+    .wrapper{
+        width: 40%;
+    }
 }
 
 @media screen and (max-width: 875px){
@@ -273,6 +277,11 @@ input[type=submit]{
         flex-direction: column;
         text-align: center;
     }
+
+    .wrapper{
+        width: 50%;
+    }
+
 }
 
 @media screen and (max-width: 620px){
@@ -283,4 +292,16 @@ input[type=submit]{
     h1{
         font-size: 2em;
     }
+
+    .wrapper{
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .wrapper{
+        width: 80%;
+    }
+    
 }
