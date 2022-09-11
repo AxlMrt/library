@@ -57,7 +57,7 @@ function displayBook(){
         deleteX.addEventListener("click", function() {
             myLibrary.splice(this.parentElement.getAttribute("data-index"), 1);
             this.parentElement.remove();
-        }) 
+        })
 
         //for each infos of the books
         for (let bookInfos in books){
@@ -79,9 +79,9 @@ function displayBook(){
         //Modify the read line
         modifyBtn.addEventListener("click", () => {
              if (readText.textContent === "Lu: Lu"){
-                readText.textContent = "Lu: Non lu"
+                readText.textContent = "Lu: Non lu";
             }else{
-                readText.textContent = "Lu: Lu"
+                readText.textContent = "Lu: Lu";
             }
         })
     })
