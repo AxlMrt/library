@@ -65,6 +65,7 @@ main{
     background: var(--white);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1.3em;
     padding: 2em;
     border: 1px solid black ;
@@ -100,6 +101,7 @@ main{
 #modifyBtn{
     width: 100%;
     height: 3em;
+    bottom: 0;
     background: none;
     border: 1px solid var(--darkGrey);
     border-radius: 5px;
@@ -253,7 +255,15 @@ input[type=submit]{
     font-weight: 700;
 }
 
-@media screen and (max-width: 1150px){
+@media screen and (max-width: 1360px){
+    .display{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width: 1080px){
     .display{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -273,9 +283,7 @@ input[type=submit]{
     }
 
     .display{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
+        font-size: .8em;
     }
 
     .wrapper{
@@ -284,7 +292,7 @@ input[type=submit]{
 
 }
 
-@media screen and (max-width: 620px){
+@media screen and (max-width: 660px){
     header img{
         width: 100px;
     }
@@ -296,6 +304,13 @@ input[type=submit]{
     .wrapper{
         width: 65%;
     }
+
+    .display{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
