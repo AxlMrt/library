@@ -21,9 +21,9 @@ function addBookToLibrary(){
     const title = document.getElementById("titre").value;
     const author = document.getElementById("auteur").value;
     const pages = document.getElementById("pages").value;
-    const read = document.getElementById('isRead').checked;
+    const read = document.getElementById("isRead").checked;
 
-    // Store the values
+    // Reset the values
     document.getElementById("titre").value = "";
     document.getElementById("auteur").value = "";
     document.getElementById("pages").value = "";
@@ -71,11 +71,11 @@ function displayBook(){
         //create a modify button for each card
         const modifyBtn = document.createElement("button");
         modifyBtn.setAttribute("id", "modifyBtn");
-        modifyBtn.textContent = "modifier";
+        modifyBtn.textContent = "status";
         card.appendChild(modifyBtn);
 
         //Toggle the read line
-        const readText = document.querySelector(".bookDisplay :nth-child(5)")
+        const readText = card.querySelector(".bookDisplay :nth-child(5)")
         //Modify the read line
         modifyBtn.addEventListener("click", () => {
              if (readText.textContent === "Lu: Lu"){
@@ -87,11 +87,6 @@ function displayBook(){
     })
 }
 
-submitBtn.addEventListener("click", () =>{
-    addBookToLibrary();
-    displayBook();
-})
-
 // Close & Open modal
 const newBookBtn = document.querySelector(".button");
 const overlay = document.getElementById("popup");
@@ -101,5 +96,7 @@ newBookBtn.addEventListener("click", () =>{
 })
 
 submitBtn.addEventListener("click", () =>{
-    overlay.classList.remove("hidden");
+    addBookToLibrary();
+    displayBook();
+    overlay.classList.remove("hidden"); 
 })
