@@ -57,16 +57,16 @@ main{
 .display{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2em;
+    gap: 5em;
 }
 
 .bookDisplay{
-    max-width: 250px;
+    width: 100%;
     background: var(--white);
     display: flex;
     flex-direction: column;
     gap: 1.3em;
-    padding: 1em;
+    padding: 2em;
     border: 1px solid black ;
     border-radius: 8px;
     box-shadow: 14px 14px 0 -4px var(--white), 14px 14px 0 0 var(--darkGrey);
@@ -93,13 +93,13 @@ main{
 }
 
 .bookDisplay p{
-    font-size: 1.2em;
+    font-size: 1.5em;
     letter-spacing: 2px;
 }
 
 #modifyBtn{
     width: 100%;
-    height: 2em;
+    height: 3em;
     background: none;
     border: 1px solid var(--darkGrey);
     border-radius: 5px;
@@ -244,4 +244,36 @@ input[type=submit]{
     text-decoration: none;
     color: black;
     font-weight: 700;
+}
+
+@media screen and (max-width: 1150px){
+    .display{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width: 875px){
+    header{
+        display: flex;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .display{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 620px){
+    header img{
+        width: 100px;
+    }
+
+    h1{
+        font-size: 2em;
+    }
 }
