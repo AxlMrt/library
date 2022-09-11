@@ -131,8 +131,15 @@ main{
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 50px;
+    box-shadow: 0 3px 8px 2px black;
     cursor: pointer;
     transition: all .3s ease-out;
+}
+
+.button:hover{
+    background: var(--white);
+    color: var(--darkGrey);
+    transition: .3s ease-in;
 }
 
 .overlay{
