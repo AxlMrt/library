@@ -5,17 +5,20 @@ const overlay = document.getElementById("popup");
 
 let myLibrary = [];
 
-// Constructor - store the book infos
-function Book(title, author, pages, read){
-    this.Titre = title;
-    this.Auteur = author;
-    this.Pages = pages;
 
-    if (read === true){
-        this.Lu = "Lu";
-    }else{
-        this.Lu = "Non lu";
-    }
+// Constructor - store the book infos
+class Book {
+    constructor(title, author, pages, read){
+        this.Titre = title;
+        this.Auteur = author;
+        this.Pages = pages;
+
+        if (read === true){
+            this.Lu = "Lu";
+        }else{
+            this.Lu = "Non lu";
+        }
+ }
 }
 
 //Create newBook, push it in Library array
