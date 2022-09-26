@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="index.js" defer></script>
 
     <title>Librairie App</title>
-</head>
-<body>
-  <header>
-    <img src="img/logo.jpg" alt="logo">
-    <h1>Librairie</h1>
-  </header>
-    
-  <main>
-    <div class="box">
-      <a href="#popup" class="button">+ Ajouter</a>
-    </div>
-    
-    <div class="display"></div>
-    
-    <div class="overlay hidden" id="popup">
-      <div class="wrapper">
-        <h2>New Book</h2>
-        <a href="#" class="close">&times;</a>
-        <div class="content">
-          <div class="container">
-            <form id="makeBook">
-              <label for="titre">Titre du livre*</label>
-              <input type="text" name="titre" id="titre" placeholder="Titre">
-              <label for="auteur">Auteur*</label>
-              <input type="text" name="auteur" id="auteur" placeholder="Auteur">
-              <label for="page">Nombre de pages*</label>
-              <input type="number" name="page" id="pages" placeholder="Nombre de pages">
-              <label for="isRead">Déjà lu ?</label>
-              <input type="checkbox" name="isRead" id="isRead">
-              <input type="submit" value="submit" class="submitBtn">
-            </form>
+  </head>
+  <body>
+    <header>
+      <img src="img/logo.jpg" alt="logo" />
+      <h1>Librairie</h1>
+    </header>
+
+    <main>
+      <div class="box">
+        <a href="#popup" class="button">+ Ajouter</a>
+      </div>
+
+      <div class="display"></div>
+
+      <div class="overlay hidden" id="popup">
+        <div class="wrapper">
+          <h2>New Book</h2>
+          <a href="#" class="close">&times;</a>
+          <div class="content">
+            <div class="container">
+              <form id="makeBook">
+                <label for="titre">Titre du livre*</label>
+                <input
+                  type="text"
+                  name="titre"
+                  id="titre"
+                  placeholder="Titre"
+                  required
+                />
+                <label for="auteur">Auteur*</label>
+                <input
+                  type="text"
+                  name="auteur"
+                  id="auteur"
+                  placeholder="Auteur"
+                  required
+                />
+                <label for="page">Nombre de pages*</label>
+                <input
+                  type="number"
+                  name="page"
+                  id="pages"
+                  placeholder="Nombre de pages"
+                  required
+                />
+                <label for="isRead">Déjà lu ?</label>
+                <input type="checkbox" name="isRead" id="isRead" />
+                <input
+                  type="submit"
+                  value="submit"
+                  class="submitBtn"
+                />
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-  </main>
-  <footer class="footer">
-    <p>
-      Copyright ©
-      <script>
-        document.write(new Date().getFullYear())
-      </script>
-
-    </p>
-    <a href="https://github.com/AxlMrt" target="_blank">AxlDev</a>
-  </footer>
-</body>
+    </main>
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+      </p>
+      <a href="https://github.com/AxlMrt" target="_blank">AxlDev</a>
+    </footer>
+  </body>
 </html>

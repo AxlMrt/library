@@ -1,105 +1,115 @@
-const display = document.querySelector(".display");
-const submitBtn = document.querySelector(".submitBtn");
-const newBookBtn = document.querySelector(".button");
-const overlay = document.getElementById("popup");
+/* eslint-disable no-param-reassign */
+/* eslint-disable guard-for-in */
+const display = document.querySelector('.display');
+const submitBtn = document.querySelector('.submitBtn');
+const newBookBtn = document.querySelector('.button');
+const overlay = document.getElementById('popup');
+const form = document.getElementById('makeBook');
 
-let myLibrary = [];
-
+const myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
 // Constructor - store the book infos
 class Book {
-    constructor(title, author, pages, read){
-        this.Titre = title;
-        this.Auteur = author;
-        this.Pages = pages;
+  constructor(title, author, pages, read) {
+    this.Titre = title;
+    this.Auteur = author;
+    this.Pages = pages;
 
-        if (read === true){
-            this.Lu = "Lu";
-        }else{
-            this.Lu = "Non lu";
-        }
- }
+    if (read === true) {
+      this.Lu = 'Lu';
+    } else {
+      this.Lu = 'Non lu';
+    }
+  }
 }
 
-//Create newBook, push it in Library array
-function addBookToLibrary(){
-    const title = document.getElementById("titre").value;
-    const author = document.getElementById("auteur").value;
-    const pages = document.getElementById("pages").value;
-    const read = document.getElementById("isRead").checked;
+function displayBook() {
+  display.innerHTML = '';
 
-    // Reset the values
-    document.getElementById("titre").value = "";
-    document.getElementById("auteur").value = "";
-    document.getElementById("pages").value = "";
-    document.getElementById("isRead").checked = false;
+  // For each books in myLibrary
+  myLibrary.forEach((books) => {
+    // create div for each book
+    const card = document.createElement('div');
+    const deleteX = document.createElement('span');
+    const modifyBtn = document.createElement('button');
 
-    //If one of the input is empty, return an alert
-    if(title === "" || author === "" || pages === ""){
-        return alert("Les champs doivent être remplis");
+    card.classList.add('bookDisplay');
+    modifyBtn.setAttribute('id', 'modifyBtn');
+    modifyBtn.textContent = 'status';
+    deleteX.textContent = 'x';
+
+    card.append(deleteX);
+    // eslint-disable-next-line func-names
+    deleteX.addEventListener('click', function () {
+      myLibrary.splice(this.parentElement.getAttribute('data-index'), 1);
+      this.parentElement.remove();
+      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+    });
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const bookInfos in books) {
+      // display the books infos
+      const para = document.createElement('p');
+      para.textContent = `${bookInfos}: ${books[bookInfos]}`;
+      para.classList.add('bookText');
+      card.append(para);
     }
 
-    const newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    displayBook()
+    // Modify the read line
+    modifyBtn.addEventListener('click', () => {
+      if (books.Lu === 'Lu') {
+        books.Lu = 'Non lu';
+      } else {
+        books.Lu = 'Lu';
+      }
+      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+      displayBook();
+    });
+    display.append(card);
+    card.append(modifyBtn);
+  });
 }
 
-function displayBook(){
-    display.innerHTML = "";
+// Create newBook, push it in Library array
+// eslint-disable-next-line consistent-return
+function addBookToLibrary() {
+  const title = document.getElementById('titre').value;
+  const author = document.getElementById('auteur').value;
+  const pages = document.getElementById('pages').value;
+  const read = document.getElementById('isRead').checked;
 
-    //For each books in myLibrary
-    myLibrary.forEach(books => {
+  // Reset the values
+  document.getElementById('titre').value = '';
+  document.getElementById('auteur').value = '';
+  document.getElementById('pages').value = '';
+  document.getElementById('isRead').checked = false;
 
-        //create div for each book
-        const card = document.createElement("div");
-        card.classList.add("bookDisplay");
-        display.append(card);
+  // If one of the input is empty, return an alert
+  if (title === '' || author === '' || pages === '') {
+    // eslint-disable-next-line no-alert
+    return 'Nope';
+  }
 
-        //Create a delete button for each card
-        const deleteX = document.createElement("span");
-        deleteX.textContent = "x";
-        card.append(deleteX);
-
-        //make span work as delete button
-        deleteX.addEventListener("click", function() {
-            myLibrary.splice(this.parentElement.getAttribute("data-index"), 1);
-            this.parentElement.remove();
-        })
-
-        //for each infos of the books
-        for (let bookInfos in books){
-            //display the books infos
-            const para = document.createElement("p");
-            para.textContent = `${bookInfos}: ${books[bookInfos]}`;
-            para.classList.add("bookText")
-            card.append(para);
-        }
-
-        //create a modify button for each card
-        const modifyBtn = document.createElement("button");
-        modifyBtn.setAttribute("id", "modifyBtn");
-        modifyBtn.textContent = "status";
-        card.append(modifyBtn);
-
-        //Toggle the read line
-        const readText = card.querySelector(".bookDisplay :nth-child(5)")
-        //Modify the read line
-        modifyBtn.addEventListener("click", () => {
-             if (readText.textContent === "Lu: Lu"){
-                readText.textContent = "Lu: Non lu";
-            }else{
-                readText.textContent = "Lu: Lu";
-            }
-        })
-    })
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+  displayBook();
 }
 
-// Close & Open modal
-newBookBtn.addEventListener("click", () =>{
-    overlay.classList.add("hidden");
-})
+function handleForm(event) {
+  event.preventDefault();
+}
 
-submitBtn.addEventListener("click", () =>{
-    addBookToLibrary();
-    overlay.classList.remove("hidden"); 
-})
+// ADDEVENTLISTENER //
+form.addEventListener('submit', handleForm);
+
+newBookBtn.addEventListener('click', () => {
+  overlay.classList.add('hidden');
+});
+
+submitBtn.addEventListener('click', () => {
+  addBookToLibrary();
+  overlay.classList.remove('hidden');
+});
+
+window.addEventListener('load', displayBook);
